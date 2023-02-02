@@ -44,3 +44,38 @@ const SumOfMultiples3and5Recursive = (number=CEILING-1) => {
 console.log(SumOfMultiples3and5());
 console.log(SumOfMultiples3and5Recursive());
 console.log(`SumOfMultiples3and5() === SumOfMultiples3and5Recursive() ${SumOfMultiples3and5() === SumOfMultiples3and5Recursive()}`);
+
+//console.log(SumOfMultiples3and5(1_000_000_000)); // Slow
+//console.log(SumOfMultiples3and5Recursive(1_000_000_000)); // Maximum call stack Reached
+
+/**
+ * Solution 3. more efficient than the others.
+ * 
+ * @param {*} ceiling 
+ */
+const SumOfMultiples3and5Efficient = (ceiling=CEILING) => {
+    let number = 0;
+    let sum = 0;
+
+    while(number < ceiling){
+        sum += number;
+        number += 3;
+    }
+
+    number = 0;
+    while( number < ceiling){
+        // when a number is multiple of both 3 and 5 it means that is multiple of 15.
+        // we don't add number multiple of 15 because they are already added in the first loop.
+        if(number%15 != 0){
+            sum += number;
+        }
+        number += 5;
+    }
+    return sum;
+}
+
+console.log(SumOfMultiples3and5());
+console.log(SumOfMultiples3and5Efficient());
+console.log(`SumOfMultiples3and5() === SumOfMultiples3and5Efficient() ${SumOfMultiples3and5() === SumOfMultiples3and5Efficient()}`);
+
+console.log(`checking time for sum efficient(ceiling of 1_000_000_000): ${SumOfMultiples3and5Efficient(1_000_000_000)}`);
