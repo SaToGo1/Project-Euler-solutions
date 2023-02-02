@@ -41,13 +41,6 @@ const SumOfMultiples3and5Recursive = (number=CEILING-1) => {
     return sum;
 }
 
-console.log(SumOfMultiples3and5());
-console.log(SumOfMultiples3and5Recursive());
-console.log(`SumOfMultiples3and5() === SumOfMultiples3and5Recursive() ${SumOfMultiples3and5() === SumOfMultiples3and5Recursive()}`);
-
-//console.log(SumOfMultiples3and5(1_000_000_000)); // Slow
-//console.log(SumOfMultiples3and5Recursive(1_000_000_000)); // Maximum call stack Reached
-
 /**
  * Solution 3. more efficient than the others.
  * 
@@ -73,6 +66,11 @@ const SumOfMultiples3and5Efficient = (ceiling=CEILING) => {
     }
     return sum;
 }
+
+
+console.log(SumOfMultiples3and5());
+console.log(SumOfMultiples3and5Recursive());
+console.log(`SumOfMultiples3and5() === SumOfMultiples3and5Recursive() ${SumOfMultiples3and5() === SumOfMultiples3and5Recursive()}`);
 
 console.log(SumOfMultiples3and5());
 console.log(SumOfMultiples3and5Efficient());
